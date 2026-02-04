@@ -22,9 +22,6 @@ The website is built using real business data from Sri Meenachi Textiles:
 - **Founders:**  
   - T. Sudhakar  
   - T. Karthick  
-- **Contact Numbers:**  
-  - +91 94430 58863  
-  - +91 94884 17241  
 - **Address:**  
   Shop No.1, Kalaignar Textiles Market,  
   C.B. Road, Barugur – 635104,  
