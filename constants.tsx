@@ -1,6 +1,7 @@
+
 import React from 'react';
 import { Truck, Receipt, Database, Globe, ShoppingBag, Clock } from 'lucide-react';
-import { ServiceCardProps, NavItem, ProductType, Partner } from './types';
+import { ServiceCardProps, NavItem, ProductType, Partner } from './types.ts';
 
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Home', href: '#home' },

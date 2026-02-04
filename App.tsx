@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { 
   Instagram, 
   Facebook, 
@@ -13,8 +13,8 @@ import {
   Star,
   Sparkles
 } from 'lucide-react';
-import { NAV_ITEMS, SERVICES, PRODUCTS, PARTNERS } from './constants';
-import { getWholesaleAdvice } from './services/gemini';
+import { NAV_ITEMS, SERVICES, PRODUCTS, PARTNERS } from './constants.tsx';
+import { getWholesaleAdvice } from './services/gemini.ts';
 
 const App: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,13 +22,13 @@ const App: React.FC = () => {
   const [chatResponse, setChatResponse] = useState<string | null>(null);
   const [isChatLoading, setIsChatLoading] = useState(false);
 
-  // Robust scrolling function to prevent "white page" navigation issues
-  const scrollToSection = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  // Unified scroll handler to prevent "white page" browser navigation
+  const scrollToSection = useCallback((e: React.MouseEvent<HTMLAnchorElement | HTMLDivElement>, href: string) => {
     e.preventDefault();
     const id = href.replace('#', '');
     const element = document.getElementById(id);
     if (element) {
-      const offset = 80; // Height of fixed nav
+      const offset = 80; // Height of fixed navbar
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = element.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -38,6 +38,8 @@ const App: React.FC = () => {
         top: offsetPosition,
         behavior: 'smooth'
       });
+    } else if (href === '#home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     setIsMenuOpen(false);
   }, []);
@@ -485,7 +487,7 @@ const App: React.FC = () => {
         </div>
       </footer>
 
-      {/* Persistent CTA Button for Mobile */}
+      {/* Floating CTA */}
       <div className="fixed bottom-8 right-8 md:hidden z-40">
         <a 
           href="https://wa.me/9488417241" 
